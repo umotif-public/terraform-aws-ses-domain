@@ -22,7 +22,7 @@ Terraform 0.12. Pin module version to `~> v1.0`. Submit pull-requests to `master
 ```hcl
 module "ses-domain" {
   source = "umotif-public/ses-domain/aws"
-  version = "~> 1.0"
+  version = "~> 1.0.0"
 
   zone_id               = "Z2CBQCNDG7YEWJA"
   enable_verification   = true
@@ -43,15 +43,25 @@ Module is to be used with Terraform > 0.12.
 Module managed by [Marcin Cuber](https://github.com/marcincuber) [LinkedIn](https://www.linkedin.com/in/marcincuber/).
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| enable\_incoming\_email | Control whether or not to handle incoming emails | string | `"true"` | no |
-| enable\_spf\_record | Control whether or not to set SPF records. | bool | `"true"` | no |
-| enable\_verification | Control whether or not to verify SES DNS records. | bool | `"true"` | no |
-| spf\_txt\_record | DNS TXT record for SPF to tell email providers which servers are allowed to send email from their domains. Variable is portion of the SPF TXT record. | string | `"v=spf1 include:amazonses.com -all"` | no |
-| zone\_id | Route53 Zone ID belonging to the desired domain | string | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| enable\_incoming\_email | Control whether or not to handle incoming emails | `string` | `true` | no |
+| enable\_spf\_record | Control whether or not to set SPF records. | `bool` | `true` | no |
+| enable\_verification | Control whether or not to verify SES DNS records. | `bool` | `true` | no |
+| spf\_txt\_record | DNS TXT record for SPF to tell email providers which servers are allowed to send email from their domains. Variable is portion of the SPF TXT record. | `string` | `"v=spf1 include:amazonses.com -all"` | no |
+| zone\_id | Route53 Zone ID belonging to the desired domain | `string` | n/a | yes |
 
 ## Outputs
 
@@ -77,4 +87,7 @@ See LICENSE for full details.
 
 ```bash
 brew install pre-commit terraform-docs tflint
+
+brew tap git-chglog/git-chglog
+brew install git-chglog
 ```
