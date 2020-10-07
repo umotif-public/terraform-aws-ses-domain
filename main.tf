@@ -37,7 +37,7 @@ resource "aws_route53_record" "spf_mail_from" {
   name    = aws_ses_domain_mail_from.main.mail_from_domain
   type    = "TXT"
   ttl     = "600"
-  records = ["${var.spf_txt_record}"]
+  records = [var.spf_txt_record]
 }
 
 resource "aws_route53_record" "spf_domain" {
@@ -47,7 +47,7 @@ resource "aws_route53_record" "spf_domain" {
   name    = data.aws_route53_zone.domain.name
   type    = "TXT"
   ttl     = "600"
-  records = ["${var.spf_txt_record}"]
+  records = [var.spf_txt_record]
 }
 
 resource "aws_route53_record" "ses_domain_mail_from_mx" {
