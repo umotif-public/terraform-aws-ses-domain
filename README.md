@@ -1,3 +1,5 @@
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/umotif-public/terraform-aws-ses-domain?style=social)
+
 # terraform-aws-ses-domain
 
 Terraform module to configure a domain hosted on Route53 to work with AWS Simple Email Service (SES). Module supports both single and multi regional deployments.
