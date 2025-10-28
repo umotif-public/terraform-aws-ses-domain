@@ -57,7 +57,7 @@ resource "aws_route53_record" "ses_domain_mail_from_mx" {
   name    = aws_ses_domain_mail_from.main.mail_from_domain
   type    = "MX"
   ttl     = "600"
-  records = concat(["10 feedback-smtp.${data.aws_region.current.name}.amazonses.com"], var.additional_mail_from_records)
+  records = concat(["10 feedback-smtp.${data.aws_region.current.id}.amazonses.com"], var.additional_mail_from_records)
 }
 
 resource "aws_route53_record" "mx_receive" {
@@ -67,7 +67,7 @@ resource "aws_route53_record" "mx_receive" {
   zone_id = var.zone_id
   type    = "MX"
   ttl     = "600"
-  records = concat(["10 inbound-smtp.${data.aws_region.current.name}.amazonaws.com"], var.additional_incoming_email_records)
+  records = concat(["10 inbound-smtp.${data.aws_region.current.id}.amazonaws.com"], var.additional_incoming_email_records)
 }
 
 

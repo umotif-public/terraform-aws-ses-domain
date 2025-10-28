@@ -1,6 +1,16 @@
+terraform {
+  required_version = ">= 0.12.6"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 6.0.0"
+    }
+  }
+}
+
 provider "aws" {
-  version = ">= 3.8"
-  region  = "eu-west-1"
+  region = "eu-west-1"
 }
 
 module "ses" {
